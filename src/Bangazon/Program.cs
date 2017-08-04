@@ -7,8 +7,8 @@ namespace Bangazon
         static void Main(string[] args)
         {
             // Seed the database if none exists
-            var db = new DatabaseInitializer();
-            db.VerifyDataExists();
+            // var db = new DatabaseInitializer();
+            // db.VerifyDataExists();
 
             // Present the main menu
             Console.WriteLine ("*************************************************");
@@ -42,7 +42,7 @@ namespace Bangazon
                 Console.WriteLine ("Enter customer phone number");
                 Console.Write ("> ");
                 string phoneNumber = Console.ReadLine();
-                CustomerManager manager = new CustomerManager();
+                // CustomerManager manager = new CustomerManager();
             }
         }
     }
