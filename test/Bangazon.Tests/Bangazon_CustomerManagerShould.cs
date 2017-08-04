@@ -14,12 +14,12 @@ namespace Bangazon.Tests
             
         }
         
-        
         [Fact]
         public void AddNewCustomer()
         {
-            _register.CreateCustomer("Jeremy"); 
-            Assert.Equal(customer);
+            string customer = "Jeremy";
+            var person = _register.CreateCustomer(customer); 
+            Assert.Equal(person, "Jeremy");
         }
 
         [Fact]
