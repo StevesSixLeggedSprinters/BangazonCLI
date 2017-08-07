@@ -25,11 +25,13 @@ namespace Bangazon.Tests
             Assert.Equal(person, "Jeremy");
         }
 
+        //This test method was authored by Jordan Dhaenens
+        //This test verifies that GetCustomers() works 
         [Fact]
         public void ListCustomers()
         {
             List<Customer> cust = _register.GetCustomers();
-            Assert.IsType<List<Customer>>(cust); 
+            Assert.IsType<List<Customer>>(cust);
         }
     }
 }
