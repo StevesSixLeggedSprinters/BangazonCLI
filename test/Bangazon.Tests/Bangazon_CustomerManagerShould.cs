@@ -29,7 +29,7 @@ namespace Bangazon.Tests
         public void ListCustomers()
         {
             List<Customer> cust = _register.GetCustomers();
-            Assert.IsType<List<CustomerManager>>(cust); 
+            Assert.IsType<List<Customer>>(cust); 
         }
     }
 }
