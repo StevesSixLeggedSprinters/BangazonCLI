@@ -1,5 +1,8 @@
 using System;
 using Xunit;
+using Bangazon;
+using Bangazon.Models;
+using System.Collections.Generic;
 
 namespace Bangazon.Tests
 {
@@ -25,7 +28,8 @@ namespace Bangazon.Tests
         [Fact]
         public void ListCustomers()
         {
-
+            List<Customer> cust = _register.GetCustomers();
+            Assert.IsType<List<CustomerManager>>(cust); 
         }
     }
 }
