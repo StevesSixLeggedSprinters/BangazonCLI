@@ -18,10 +18,5 @@ namespace Bangazon
         {
             return _customers;
         }
-
-        public List<Customer> GetCustomers()
-        {
-            return _customers;
-        }
     }
 }
