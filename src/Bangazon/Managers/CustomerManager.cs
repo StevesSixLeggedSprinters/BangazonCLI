@@ -6,7 +6,9 @@ namespace Bangazon
 {
     public class CustomerManager
     {
+
         private List<Customer> _customers = new List<Customer>(); 
+
         public string CreateCustomer(string customer)
         {
             return customer;
@@ -17,5 +19,9 @@ namespace Bangazon
             return _customers;
         }
 
+        public List<Customer> GetCustomers()
+        {
+            return _customers;
+        }
     }
 }
