@@ -18,6 +18,5 @@ namespace Bangazon
         {
             return _customers;
         }
-
     }
 }
