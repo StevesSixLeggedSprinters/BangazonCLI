@@ -8,13 +8,14 @@ namespace Bangazon.Tests
 {
     public class OrderManagerShould
     {  
-        private OrderManager _orderList;
+        private OrderManager _orderList = new OrderManager();
 
         [Fact]
         public void GetCustomerOrdersList()
         {
-            List<Orders> orderList = _orderList.ListOfCustomerOrders(custId)
-            Assert.IsType<List<Orders>>(custId);
+            int custId = 4;
+            List<Order> custOrderList = _orderList.ListOfCustomerOrders(custId);
+            Assert.IsType<List<Order>>(custOrderList);
         }
 
     }
