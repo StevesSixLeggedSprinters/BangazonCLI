@@ -12,5 +12,9 @@ namespace Bangazon
        {
            return _order;
        } 
+       public bool CheckForActiveOrder(int custId)
+       {
+        return true;
+       }
     }
 }

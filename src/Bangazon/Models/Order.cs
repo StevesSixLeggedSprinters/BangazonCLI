@@ -10,7 +10,6 @@ namespace Bangazon
         public DateTime DateOrderCreated = DateTime.Now;
         public DateTime DateOrderPlaced {get; set;}
         public int CustomerId {get; set;}
-        public int PaymentTypeId {get; set;}
-        
+        public int? PaymentTypeId {get; set;}
      }
 }
