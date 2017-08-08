@@ -29,8 +29,8 @@ namespace Bangazon.Tests
             string paymentTypeName = "bitcoin";
 
             PaymentType money = new PaymentType(customer, number, paymentTypeName);
-            var paymentTest = _paymentManager.AddPaymentType(customer, money);
-            Assert.True(paymentTest);
+            PaymentType paymentTest = _paymentManager.AddPaymentType(customer, money);
+            Assert.Equal(money, paymentTest);
         }
 
         [Fact]
@@ -49,8 +49,11 @@ namespace Bangazon.Tests
             _paymentManager.AddPaymentType(joe, bitcoin);
 
             List<PaymentType> result = _paymentManager.GetPaymentTypes(joe.CustomerId);
-            Assert.IsType<List<PaymentType>>(result);
 
+            foreach (PaymentType res in result)
+            {
+                Assert.Equal(res.CustomerId, joe.CustomerId);
+            }
         }
     }
 }
