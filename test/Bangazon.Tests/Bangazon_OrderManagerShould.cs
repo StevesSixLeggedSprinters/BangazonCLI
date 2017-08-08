@@ -32,5 +32,16 @@ namespace Bangazon.Tests
             Assert.True(customerHasActiveOrder);
         }
 
+        /*  Authored by Kyle Kellums & Krissy Caron
+            This method tests if a customer's order gets created.
+            CustomerId will be passed to this method
+        */
+        [Fact]
+        public void OrderManagerShouldCreateAnOrder()
+        {
+            int CustomerId = 4;
+            var createANewOrder = _orderList.CreateOrder(CustomerId);
+            Assert.True(createANewOrder != 0);
+        }
     }
 }
