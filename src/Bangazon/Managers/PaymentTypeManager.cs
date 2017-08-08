@@ -10,5 +10,11 @@ namespace Bangazon
         {
             return true;
         }
+
+        public List <PaymentType> GetPaymentTypes(int custId)
+        {
+            List<PaymentType> results = new List<PaymentType>();
+            return results;
+        }
     }
 }
