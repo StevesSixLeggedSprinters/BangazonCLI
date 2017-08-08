@@ -33,5 +33,38 @@ namespace Bangazon.Tests
             List<Customer> cust = _register.GetCustomers();
             Assert.IsType<List<Customer>>(cust);
         }
+
+        //This test method was authored by Jordan Dhaenens
+        //This test verifies that user can set active customer
+        [Fact]
+        public void SetACustomerAsActive()
+        {
+            Customer joe = new Customer()
+            {
+                FirstName = "Joe",
+                LastName = "Person",
+                CustomerId = 4
+            };
+
+            var rez = _register.SetActiveCustomer(joe);
+            Assert.Equal(rez, joe);
+        }
+
+        //This test method was authored by Jordan Dhaenens
+        //This test verifies that user can retrieve the active customer
+        [Fact]
+        public void RetrieveActiveCustomerFromDB()
+        {
+            Customer joe = new Customer()
+            {
+                FirstName = "Joe",
+                LastName = "Person",
+                CustomerId = 4
+            };
+            _register.SetActiveCustomer(joe);
+            Customer rez = _register.GetActiveCustomer();
+            // Assert.IsType<Customer>(rez);
+            Assert.Equal(rez, joe);
+        }
     }
 }

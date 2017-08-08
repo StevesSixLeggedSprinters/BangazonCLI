@@ -6,6 +6,7 @@ namespace Bangazon
 {
     public class CustomerManager
     {
+        private Customer _activeCustomer = new Customer();
 
         private List<Customer> _customers = new List<Customer>(); 
 
@@ -17,6 +18,17 @@ namespace Bangazon
         public List<Customer> GetCustomers()
         {
             return _customers;
+        }
+
+        public Customer SetActiveCustomer(Customer cust)
+        {
+            _activeCustomer = cust;
+            return _activeCustomer;
+        }
+
+        public Customer GetActiveCustomer()
+        {
+            return _activeCustomer;
         }
     }
 }
