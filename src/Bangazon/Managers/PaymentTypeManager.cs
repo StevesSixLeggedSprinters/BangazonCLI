@@ -11,6 +11,8 @@ namespace Bangazon
         // The method 'AddPaymentType' enables the user to add a payment type for a customer. Customer and Payment type are passed in.
         // PaymenType is a foreign key for oders.
         // Customer is a foreign key for PaymentType.
+
+        This method 
         public bool AddPaymentType(Customer cst, PaymentType pmt)
         {
             return true;
