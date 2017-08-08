@@ -14,7 +14,7 @@ namespace Bangazon
         public int CustomerId { get; set; }
 
         // PaymentType method stores data inputed by the user.
-        // This method hill create the PaymentType table.
+        // This method hill create the PaymentType, which has a customer, paymentNumber, and payName
         public PaymentType(Customer cust, double paymentNumber, string payName)
         {
             PaymentTypeName = payName;
