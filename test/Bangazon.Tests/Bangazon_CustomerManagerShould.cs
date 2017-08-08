@@ -11,12 +11,16 @@ namespace Bangazon.Tests
         
         private CustomerManager _register;
 
+        //Krissy Caron Authored - Construtor for the Customer test class of CustomerManagerShould.
         public CustomerManagerShould()
         {
+            //Krissy Caron Authored -This is the new instance of the class we are testing in the program code. 
             _register = new CustomerManager();
             
         }
-        
+    
+        //Krissy Caron Authored - Use a very specifc naming method here to send the test to the
+        // program code to get a return of the type it was sent. 
         [Fact]
         public void AddNewCustomer()
         {
@@ -27,6 +31,7 @@ namespace Bangazon.Tests
 
         //This test method was authored by Jordan Dhaenens
         //This test verifies that GetCustomers() works 
+        //Krissy Caron Added Clarification-This test verifies that GetCustomers() returns a list of customers, 
         [Fact]
         public void ListCustomers()
         {
