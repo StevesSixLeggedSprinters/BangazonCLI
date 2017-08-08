@@ -17,5 +17,7 @@ namespace Bangazon
             CustomerId = cust.CustomerId;
             AccountNumber = paymentNumber;
         }
+
+        
     }
 }
