@@ -20,5 +20,10 @@ namespace Bangazon
             List<PaymentType> filteredMoney = _money.Where(m => (m.CustomerId == custId)).ToList();
             return filteredMoney;
         }
+
+        public bool SelectPaymentType(int cusId, int payTypeId)
+        {
+            return true;
+        }
     }
 }
