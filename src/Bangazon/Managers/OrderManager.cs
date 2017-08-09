@@ -20,18 +20,18 @@ namespace Bangazon
        This method will determine using the customer id whether a customer has and active order
        Implimentation code will need to be added here to determine the case of it no active order, create a new order,
        or if an active order exsists, use that to add a new product.*/
-       public bool CheckForActiveOrder(int custId)
+       public int GetActiveOrder(int custId)
        {
-        return true;
+            return 1;
        }
 
        // Authored By Kyle Kellums and Krissy Caron
        // CreateOrder method generates a new order. This new order will be added to the Order table in the database.
        // The CustomerId will be passed in to this method.
 
-       public int CreateOrder(int CustomerId)
+       public int CreateOrder(int customerId, DateTime orderCreated)
        {
-            return CustomerId;
+            return customerId;
        }
     }
 }

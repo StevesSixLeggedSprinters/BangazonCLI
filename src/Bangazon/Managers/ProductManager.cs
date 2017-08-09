@@ -35,7 +35,7 @@ namespace Bangazon
         */
         public List<Product> GetAllProducts()
         {
-            return new List<Product>();
+            return _productList;
         }
 
     }

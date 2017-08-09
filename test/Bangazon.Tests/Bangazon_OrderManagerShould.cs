@@ -28,8 +28,8 @@ namespace Bangazon.Tests
         public void OrderManangerShouldGetCustomersActiveOrder()
         {
             int customerId = 5;
-            bool customerHasActiveOrder = _orderList.CheckForActiveOrder(customerId);
-            Assert.True(customerHasActiveOrder);
+            int customerHasActiveOrder = _orderList.GetActiveOrder(customerId);
+            Assert.IsType<int>(customerHasActiveOrder);
         }
 
         /*  Authored by Kyle Kellums & Krissy Caron
@@ -39,8 +39,11 @@ namespace Bangazon.Tests
         [Fact]
         public void OrderManagerShouldCreateAnOrder()
         {
-            int CustomerId = 4;
-            var createANewOrder = _orderList.CreateOrder(CustomerId);
+            int customerId = 4;
+            DateTime orderCreated = DateTime.Now;
+
+
+            var createANewOrder = _orderList.CreateOrder(customerId, orderCreated);
             Assert.True(createANewOrder != 0);
         }
     }
