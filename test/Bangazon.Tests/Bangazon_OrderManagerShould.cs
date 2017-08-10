@@ -64,7 +64,7 @@ namespace Bangazon.Tests
                 OrderId = 1,
                 DateOrderCreated = DateTime.Now,
                 PaymentTypeId = 2
-            }
+            };
 
 
             var totalPricePerOrder = _orderList.OrderTotal(firstOrder.OrderId);

@@ -40,7 +40,7 @@ namespace Bangazon
            return "1";
        }
 
-       public bool OrderTotal()
+       public bool OrderTotal(int myBigOrder)
        {
            return true;
        }
