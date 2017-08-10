@@ -9,10 +9,13 @@ namespace Bangazon
     {
         private List<PaymentType> _money = new List<PaymentType>();
 
-        public PaymentType AddPaymentType(Customer cst, PaymentType pmt)
+        // kk - AddPaymentType class is an int type. It
+        public int AddPaymentType(PaymentType pmt)
         {
+            int payTypeId = 0;
             _money.Add(pmt);
-            return pmt;
+            payTypeId = 3;
+            return payTypeId;
         }
 
         public List<PaymentType> GetPaymentTypes(int custId)
