@@ -110,8 +110,7 @@ namespace Bangazon
                             'LastName'              varchar(80) not null,
                             'Email'                 varchar(80) not null,
                             'Phone'                 varchar(80) not null,
-                            'DateAccountCreated'    text NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%S')),
-                            'IsActive'              integer NOT NULL
+                            'DateAccountCreated'    text NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%S'))
                         )";
                         try
                         {
