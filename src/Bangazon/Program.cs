@@ -13,9 +13,10 @@ namespace Bangazon
             // Seed the database if none exists
             // var db = new DatabaseInitializer();
             // db.VerifyDataExists();
+            DatabaseInterface db = new DatabaseInterface("BangazonCLI_db");
 
             ProductTypeManager prodTypeManager = new ProductTypeManager();
-            ProductManager prodManager = new ProductManager();
+            ProductManager prodManager = new ProductManager(db);
             
             // Present the main menu
             Console.WriteLine ("*************************************************");
