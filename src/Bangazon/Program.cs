@@ -87,9 +87,8 @@ namespace Bangazon
                 DateTime date = DateTime.Now;
                 Console.WriteLine("Enter quantity to list");
                 int quantity = int.Parse(Console.ReadLine());
-                //get activeCustomer id
-                Customer currentCust = manager.ActiveCustomer;
-                int custId = manager.ActiveCustomer.CustomerId;
+                //get activeCustomer id. Why is this not working?!?!?!?!
+                int custId = manager.ActiveCustomerId;
                 prodManager.AddProduct(price, title, description, date, quantity, custId, prodTypeID);
             }
         }

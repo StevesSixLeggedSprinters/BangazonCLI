@@ -6,7 +6,9 @@ namespace Bangazon
 {
     public class CustomerManager
     {
-        public static Customer ActiveCustomer { get; set; }
+        //This field authored by Jordan Dhaenens
+        //I changed this from a Customer instance to integer to facilitate ease of access
+        public static int ActiveCustomerId { get; set; }
         private List<Customer> _customers = new List<Customer>();
         
         /*Created by Krissy Caron 
