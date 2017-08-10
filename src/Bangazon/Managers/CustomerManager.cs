@@ -31,7 +31,7 @@ namespace Bangazon
                 DateAccountCreated = dateAccountCreated
             });
 
-            string sqlStatment = $"insert into Customer values (null,'{firstName}', '{lastName}', '{email}', '{phone}', {dateAccountCreated})";
+            string sqlStatment = $"insert into Customer values (null,'{firstName}', '{lastName}', '{email}', '{phone}', '{dateAccountCreated}')";
             int customerId = _db.Insert(sqlStatment);
             return customerId;
         }
