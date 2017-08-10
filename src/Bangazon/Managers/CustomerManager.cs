@@ -7,8 +7,17 @@ namespace Bangazon
     public class CustomerManager
     {
         public static Customer ActiveCustomer { get; set; }
+        private List<Customer> _customers = new List<Customer>();
+        
+        private DatabaseInterface _db;
 
-        private List<Customer> _customers = new List<Customer>(); 
+        //This is the New Customer Manager Constructor
+        public CustomerManager(DatabaseInterface db)
+        {
+            _db = db;
+
+        }
+
 
         //This Method is creating a single customer, and is currently taking a string 
         //from the test enviroment and returning that string to pass.
@@ -21,7 +30,10 @@ namespace Bangazon
                 Phone = phone,
                 DateAccountCreated = dateAccountCreated
             });
-            return 1;
+
+            string sqlStatment = $"insert into Customer values (null,'{firstName}', '{lastName}', '{email}', '{phone}', {dateAccountCreated})";
+            int customerId = _db.Insert(sqlStatment);
+            return customerId;
         }
 
         //This method was authored by Jordan Dhaenens

@@ -9,6 +9,12 @@ namespace Bangazon
             // Seed the database if none exists
             // var db = new DatabaseInitializer();
             // db.VerifyDataExists();
+            DatabaseInterface db = new DatabaseInterface("BangazonCLI_db");
+            db.CheckCustomerTable();
+            db.CheckProductTypeTable();
+            db.CheckProductTable();
+            db.CheckPaymentTypeTable();
+            db.CheckOrdersTable();
 
             // Present the main menu
             Console.WriteLine ("*************************************************");
@@ -30,19 +36,15 @@ namespace Bangazon
                 Console.WriteLine ("Enter customer last name");
                 Console.Write ("> ");
                 string lastName = Console.ReadLine();
-                Console.WriteLine ("Enter customer city");
-                Console.Write ("> ");
-                string city = Console.ReadLine();
-                Console.WriteLine ("Enter customer state");
-                Console.Write ("> ");
-                string state = Console.ReadLine();
-                Console.WriteLine ("Enter customer postal code");
-                Console.Write ("> ");
-                string postalCode = Console.ReadLine();
+                Console.WriteLine("Enter customer email");
+                Console.Write(">");
+                string email = Console.ReadLine();
                 Console.WriteLine ("Enter customer phone number");
                 Console.Write ("> ");
                 string phoneNumber = Console.ReadLine();
-                // CustomerManager manager = new CustomerManager();
+
+                CustomerManager manager = new CustomerManager(db);
+                manager.CreateCustomer(firstName, lastName, email, phoneNumber, DateTime.Now);
             }
         }
     }
