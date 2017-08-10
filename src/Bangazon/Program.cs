@@ -19,8 +19,8 @@ namespace Bangazon
             db.CheckOrdersTable();
             db.CheckProductOrderTable();
 
-            DBPopulator populator = new DBPopulator();
-            populator.Populate();
+            // Why does this not need an instance of class DBPopulator?
+            DBPopulator.Populate(db);
             
             //Instance of customer manager. 
             CustomerManager manager = new CustomerManager(db);
