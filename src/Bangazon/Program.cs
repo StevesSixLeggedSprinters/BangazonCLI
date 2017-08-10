@@ -9,6 +9,9 @@ namespace Bangazon
             // Seed the database if none exists
             // var db = new DatabaseInitializer();
             // db.VerifyDataExists();
+
+            /* Authored by Krissy Caron this creating a new instance of db and creating the folowing tables
+            usign the DatabaseInterface.cs as a blue print. */
             DatabaseInterface db = new DatabaseInterface("BangazonCLI_db");
             db.CheckCustomerTable();
             db.CheckProductTypeTable();
@@ -27,7 +30,9 @@ namespace Bangazon
 			int choice;
 			Int32.TryParse (Console.ReadLine(), out choice);
 
-            // If option 1 was chosen, create a new customer account
+            /* Authored By Krissy Caron
+            If option 1 was chosen, create a new customer account will trigger the following in the CMD line.
+            A new instance of customer will then be created from each type the user inputs and sent to the db in to the correct columns and table. */
             if (choice == 1)
             {
                 Console.WriteLine ("Enter customer first name");

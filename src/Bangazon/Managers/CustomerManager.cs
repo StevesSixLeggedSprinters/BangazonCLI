@@ -9,9 +9,11 @@ namespace Bangazon
         public static Customer ActiveCustomer { get; set; }
         private List<Customer> _customers = new List<Customer>();
         
+        /*Created by Krissy Caron 
+        This is creating a new private variable db from the DatabaseInterface */ 
         private DatabaseInterface _db;
-
-        //This is the New Customer Manager Constructor
+        /* Created by Krissy Caron 
+        The New Customer Manager Constructor creates a new db */
         public CustomerManager(DatabaseInterface db)
         {
             _db = db;
@@ -19,8 +21,8 @@ namespace Bangazon
         }
 
 
-        //This Method is creating a single customer, and is currently taking a string 
-        //from the test enviroment and returning that string to pass.
+        /*Authored by Krissy Caron This Method is inserting a single customer, passing in the customer object, 
+        returning the customerId from the Customer Table created in the enviroment variable currently. */
         public int CreateCustomer(string firstName, string lastName, string email, string phone, DateTime dateAccountCreated)
         {
             _customers.Add(new Customer(){
