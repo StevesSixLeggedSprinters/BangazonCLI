@@ -18,6 +18,10 @@ namespace Bangazon
             db.CheckProductTable();
             db.CheckPaymentTypeTable();
             db.CheckOrdersTable();
+            db.CheckProductOrderTable();
+            
+            //Instance of customer manager. 
+            CustomerManager manager = new CustomerManager(db);
 
             // Present the main menu
             Console.WriteLine ("*************************************************");
@@ -48,7 +52,6 @@ namespace Bangazon
                 Console.Write ("> ");
                 string phoneNumber = Console.ReadLine();
 
-                CustomerManager manager = new CustomerManager(db);
                 manager.CreateCustomer(firstName, lastName, email, phoneNumber, DateTime.Now);
             }
         }
