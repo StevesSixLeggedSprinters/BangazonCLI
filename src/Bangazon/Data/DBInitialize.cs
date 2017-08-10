@@ -20,9 +20,9 @@ namespace Bangazon.Data
             _connection = DatabaseInterface.Connection;
 
             //Populating Customer table
-            _connection.Insert( $"insert into customer values (null, 'Joe', 'Schmoe', 'something@something.com', '615-555-5555', 1)" );
-            _connection.Insert( $"insert into customer values (null, 'Jill', 'Schmoe', 'something@something.com', '615-444-5555', 1)");
-            _connection.Insert( $"insert into customer values (null, 'Juble', 'Lee', 'something@something.com', '615-333-5555', 1)");
+            _connection.Insert( $"insert into customer values (null, 'Joe', 'Schmoe', 'something@something.com', '615-555-5555')" );
+            _connection.Insert( $"insert into customer values (null, 'Jill', 'Schmoe', 'something@something.com', '615-444-5555')");
+            _connection.Insert( $"insert into customer values (null, 'Juble', 'Lee', 'something@something.com', '615-333-5555')");
 
             //Populating the ProductType table
             _connection.Insert( $"insert into ProductType values (null, 'Produce')");

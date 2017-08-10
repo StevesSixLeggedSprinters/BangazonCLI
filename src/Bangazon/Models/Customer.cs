@@ -17,6 +17,6 @@ namespace Bangazon.Models
         public string Email {get; set;}
         public string Phone {get; set; }
         public DateTime DateAccountCreated = DateTime.Now;
-        public int IsActive {get; set;}
+
     }
 } 

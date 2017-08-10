@@ -9,6 +9,8 @@ namespace Bangazon
 
         private List<Product> _productList = new List<Product>();
 
+        //This method is authored by Jordan Dhaenens
+        //This method will prompt user for 
         public bool AddProduct(Customer cust, Product prod)
         {
             return true;
