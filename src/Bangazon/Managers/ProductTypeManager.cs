@@ -7,10 +7,15 @@ namespace Bangazon
 {
     public class ProductTypeManager
     {
+        private List<ProductType> _types = new List<ProductType>();
+
+        public void AddProductType(ProductType type)
+        {
+            _types.Add(type);
+        }
         public List<ProductType> GetProductTypes()
         {
-            List <ProductType> newList = new List<ProductType>();
-            return newList;
+            return _types;
         }
     }
 }
