@@ -14,11 +14,23 @@ namespace Bangazon.Tests
             _ProductTypeManager = new ProductTypeManager();
         }
 
+        //This test is authored by Jordan Dhaenens
+        //This test checks that productTypes are returned
         [Fact]
         public void GetAllProductTypesThatExist()
         {
             List<ProductType> typesList = _ProductTypeManager.GetProductTypes();
-            Assert.IsType<List<ProductType>>(typesList);
+            Assert.Empty(typesList);
+
+            ProductType type = new ProductType()
+                {
+                    ProductTypeId = 1,
+                    Name = "shoe"
+                };
+
+            _ProductTypeManager.AddProductType(type);
+            typesList = _ProductTypeManager.GetProductTypes();
+            Assert.NotEmpty(typesList);
         } 
 
     }

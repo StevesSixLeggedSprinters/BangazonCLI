@@ -24,9 +24,14 @@ namespace Bangazon.Tests
         [Fact]
         public void AddNewCustomer()
         {
-            string customer = "Jeremy";
-            var person = _register.CreateCustomer(customer); 
-            Assert.Equal(person, "Jeremy");
+            string firstName = "Jeremy";
+            string lastName = "Smith";
+            string email = "a@a.com";
+            string phone = "55555555555";
+            DateTime dateAccountCreated = DateTime.Now;
+
+            int customerId = _register.CreateCustomer(firstName, lastName, email, phone, dateAccountCreated); 
+            Assert.NotNull(customerId);
         }
 
         //This test method was authored by Jordan Dhaenens
@@ -36,7 +41,16 @@ namespace Bangazon.Tests
         public void ListCustomers()
         {
             List<Customer> cust = _register.GetCustomers();
-            Assert.IsType<List<Customer>>(cust);
+            Assert.Empty(cust);
+            string firstName = "Jeremy";
+            string lastName = "Smith";
+            string email = "a@a.com";
+            string phone = "55555555555";
+            DateTime dateAccountCreated = DateTime.Now;
+            int customerId = _register.CreateCustomer(firstName, lastName, email, phone, dateAccountCreated);
+            cust = _register.GetCustomers();
+            Assert.NotEmpty(cust); 
+
         }
 
     }

@@ -9,6 +9,7 @@ namespace Bangazon
     public class OrderManager
     {
        private List<Order> _order = new List<Order>();
+       
 
        /*Authored By Kyle Kellums and Krissy Caron
        This method is taking the customer id and returning the list of associated orders of that customer.*/
@@ -32,6 +33,16 @@ namespace Bangazon
        public int CreateOrder(int customerId, DateTime orderCreated)
        {
             return customerId;
+       }
+
+       public string IsCartEmpty(string orderId )
+       {
+           return "1";
+       }
+
+       public bool OrderTotal(int myBigOrder)
+       {
+           return true;
        }
     }
 }
