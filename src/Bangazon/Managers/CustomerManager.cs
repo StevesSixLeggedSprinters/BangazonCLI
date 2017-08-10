@@ -12,9 +12,16 @@ namespace Bangazon
 
         //This Method is creating a single customer, and is currently taking a string 
         //from the test enviroment and returning that string to pass.
-        public string CreateCustomer(string customer)
+        public int CreateCustomer(string firstName, string lastName, string email, string phone, DateTime dateAccountCreated)
         {
-            return customer;
+            _customers.Add(new Customer(){
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                Phone = phone,
+                DateAccountCreated = dateAccountCreated
+            });
+            return 1;
         }
 
         //This method was authored by Jordan Dhaenens
