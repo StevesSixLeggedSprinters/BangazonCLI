@@ -11,27 +11,21 @@ namespace Bangazon
         private List<Product> _productList = new List<Product>();
         private DatabaseInterface _db;
 
-        public ProductManager
+        public ProductManager(DatabaseInterface db) 
+        {
+            _db = db;
+        }
 
         //This method was authored by Jordan Dhaenens
         //Is creates a product line item in the database and returns the id response from the database
         public int AddProduct(double price, string title, string descript, DateTime prodAdded, int quant, int custID, int prodTypeId)
         {
            
+            
 
 
-
-            // Product prod = new Product()
-            // {
-            //     Price = price,
-            //     Title = title,
-            //     Description = descript,
-            //     DateProductAdded = prodAdded,
-            //     Quantity = quant,
-            //     CustomerId = custID, 
-            //     ProductTypeId = prodTypeId
-            // };
-            _productList.Add(prod);
+           
+            
             return 1;
         }
 
