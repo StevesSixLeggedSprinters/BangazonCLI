@@ -29,8 +29,42 @@ namespace Bangazon.Tests
             string paymentTypeName = "bitcoin";
 
             PaymentType money = new PaymentType(customer, number, paymentTypeName);
-            var paymentTest = _paymentManager.AddPaymentType(customer, money);
-            Assert.True(paymentTest);
+            PaymentType paymentTest = _paymentManager.AddPaymentType(customer, money);
+            Assert.Equal(money, paymentTest);
         }
+
+        [Fact]
+        public void GetPaymentTypesForCustomer()
+        {
+            Customer joe = new Customer()
+            {
+                FirstName = "Joe",
+                LastName = "Shmoe",
+                CustomerId = 1
+            };
+
+            PaymentType bitcoin = new PaymentType(joe, 156156, "bitcoin");
+          
+
+            _paymentManager.AddPaymentType(joe, bitcoin);
+
+            List<PaymentType> result = _paymentManager.GetPaymentTypes(joe.CustomerId);
+
+            foreach (PaymentType res in result)
+            {
+                Assert.Equal(res.CustomerId, joe.CustomerId);
+            }
+        }
+
+        [Fact]
+        public void ShouldSelectPaymentTypeForOrder()
+        {
+            int orderId = 1;
+            int paymentTypeId = 1;
+
+            var chosePayType = _paymentManager.SelectPaymentType(orderId, paymentTypeId);
+            Assert.True(chosePayType);
+        }
+
     }
 }
