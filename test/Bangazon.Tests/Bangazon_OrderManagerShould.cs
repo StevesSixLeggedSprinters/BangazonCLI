@@ -46,5 +46,31 @@ namespace Bangazon.Tests
             var createANewOrder = _orderList.CreateOrder(customerId, orderCreated);
             Assert.True(createANewOrder != 0);
         }
+
+        [Fact]
+        public void IsTheCustomersCartEmpty()
+        {
+
+            string someOrderId = "1";
+            var checkingTheCart = _orderList.IsCartEmpty(someOrderId);
+            Assert.NotNull(someOrderId); 
+        }
+
+        [Fact]
+        public void ShouldGetOrderTotal()
+        {
+            Order firstOrder = new Order()
+            {
+                OrderId = 1,
+                DateOrderCreated = DateTime.Now,
+                PaymentTypeId = 2
+            };
+
+
+            var totalPricePerOrder = _orderList.OrderTotal(firstOrder.OrderId);
+            Assert.True(totalPricePerOrder);
+        }
+
+
     }
 }

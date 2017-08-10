@@ -55,5 +55,16 @@ namespace Bangazon.Tests
                 Assert.Equal(res.CustomerId, joe.CustomerId);
             }
         }
+
+        [Fact]
+        public void ShouldSelectPaymentTypeForOrder()
+        {
+            int orderId = 1;
+            int paymentTypeId = 1;
+
+            var chosePayType = _paymentManager.SelectPaymentType(orderId, paymentTypeId);
+            Assert.True(chosePayType);
+        }
+
     }
 }
