@@ -17,7 +17,7 @@ namespace Bangazon.Data
         //This method serves to perform the actual population of the database
         public void Populate()
         {
-            _connection = DBInterface.Connection;
+            _connection = DatabaseInterface.Connection;
 
             //Populating Customer table
             _connection.Insert( $"insert into customer values (null, 'Joe', 'Schmoe', 'something@something.com', '615-555-5555', 1)" );
@@ -35,7 +35,6 @@ namespace Bangazon.Data
             _connection.Insert( $"insert into product values (null, 12.24, 'Meat Knife', 'This knife slices through meat with ease. Great for salad prep!', '2017-04-12', 1, 2, 3)");
             _connection.Insert( $"insert into product values (null, 12.25, 'Bath Tiles', '', '2017-04-12', 1, 2, 1)");
             
-
 
             //Populating the PaymentType table
             _connection.Insert( $"insert into PaymentType values (null, 'Visa', 1234567891234567, 1)");

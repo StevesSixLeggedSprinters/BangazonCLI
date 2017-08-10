@@ -1,4 +1,5 @@
 ﻿using System;
+using Bangazon.Data;
 
 namespace Bangazon
 {
@@ -7,8 +8,16 @@ namespace Bangazon
         static void Main(string[] args)
         {
             // Seed the database if none exists
-            // var db = new DatabaseInitializer();
-            // db.VerifyDataExists();
+            DatabaseInterface db = new DatabaseInterface("BangazonCLI_db");
+            db.CheckCustomerTable();
+            db.CheckProductTypeTable();
+            db.CheckProductTable();
+            db.CheckOrderTable();
+            db.CheckPaymentTypeTable();
+            db.CheckProductOrderTable();
+            
+            DBPopulator populator = new DBPopulator();
+            populator.Populate();
 
             // Present the main menu
             Console.WriteLine ("*************************************************");
