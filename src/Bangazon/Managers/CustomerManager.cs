@@ -42,6 +42,8 @@ namespace Bangazon
 
         //This method was authored by Jordan Dhaenens
         //This method serves to retrieve all customers, eventually
+        /*This Method ammended by Krissy Caron:
+        Includes the query to return all customers currently in the database */
         public List<Customer> GetCustomers()
         {
             _db.Query("select CustomerId, FirstName, LastName, Email, Phone, DateAccountCreated from Customer", 
@@ -62,6 +64,10 @@ namespace Bangazon
                 });
             return _customers;
         }
+        /*Added by Krissy Caron
+        This Linq Statement takes the int of customerId and returns the entire customer ojected related to that id. 
+        Allowing access to that specific "Chosen Customer"
+        */
         public Customer GetCustomer (int customerId) => _customers.SingleOrDefault(Customer=> Customer.CustomerId == customerId);
     }
 }

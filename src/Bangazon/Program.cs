@@ -59,20 +59,26 @@ namespace Bangazon
 
                 manager.CreateCustomer(firstName, lastName, email, phoneNumber, DateTime.Now);
             }
-            //If Option 2 
+            /* Authored by Krissy Caron
+            If Option 2 is selected, the list of all customers is displayed to the console in a Numered list. 
+            The user can select from the customers which to make active, and that will be stored in the ActiveCustomer. */
             if (choice == 2)
             {
                 Console.WriteLine ("Which customer will be active?");
                 
+                //Displays List of currently avaiable customers
                 List <Customer> customersList = manager.GetCustomers();
                     foreach (Customer customer in customersList)
                     {
                         Console.WriteLine($"{customer.CustomerId}. {customer.FirstName} {customer.LastName}");
                     }
                 Console.Write ("> ");
+                
+                //Takes a string of the chosen customer which is a number, and makes it equal to the instance of that customer in the database.
                 string chosenCustomer = Console.ReadLine(); 
                 CustomerManager.ActiveCustomer = manager.GetCustomer(int.Parse(chosenCustomer));
 
+                //Takes Active customer and prints their name to console. 
                 Console.WriteLine("Active Customer is: " + CustomerManager.ActiveCustomer.FirstName + " " + CustomerManager.ActiveCustomer.LastName);
 
 
