@@ -98,6 +98,7 @@ namespace Bangazon
                 int custId = CustomerManager.ActiveCustomerId;
 
                 prodManager.AddProduct(price, title, description, date, quantity, custId, prodTypeID);
+
             }
         }
     }

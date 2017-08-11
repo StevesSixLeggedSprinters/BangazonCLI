@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Bangazon.Models;
+using Microsoft.Data.Sqlite;
 
 
 namespace Bangazon
@@ -26,11 +27,33 @@ namespace Bangazon
            return productId;
         }
 
-        /* Authored by Kyle Kellums and Krissy Caron 
-        This GetAllProducts method gets a list of all products in the database/invetory. It is a List type, and the method returns a list of the products.
-        */
+        //This method was authored by Jordan Dhaenens
+        //This method grabs all products from database, adds them to a list and returns them to the caller
         public List<Product> GetAllProducts()
         {
+            //SQL query command
+            string command = $"select * from product";
+            //ActionHandler for _db.Query()
+            Action<SqliteDataReader> action = (SqliteDataReader reader) => {
+                _productList.Clear();
+                while ( reader.Read() )
+                {
+                    _productList.Add( new Product() 
+                    {
+                        ProductId = reader.GetInt32(0),
+                        Price = reader.GetDouble(1),
+                        Title = reader[2].ToString(),
+                        Description = reader[3].ToString(),
+                        DateProductAdded = reader.GetDateTime(4),
+                        Quantity = reader.GetInt32(5),
+                        CustomerId = reader.GetInt32(6),
+                        ProductTypeId = reader.GetInt32(7)
+                    });
+                }
+            };
+            //Query the database
+            _db.Query(command, action);
+            //Return list of productTypes
             return _productList;
         }
 
