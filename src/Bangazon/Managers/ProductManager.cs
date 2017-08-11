@@ -17,10 +17,10 @@ namespace Bangazon
         }
 
         //This method was authored by Jordan Dhaenens
-        //It creates a product line item in the database and returns the id response from the database
+        //This method creates a product line item in the database and returns the id response from the database
         public int AddProduct(double price, string title, string descript, DateTime prodAdded, int quant, int custID, int prodTypeId)
         {
-           string command = $"insert into product values (null, '{price}', '{title}', '{descript}', '{prodAdded}', '  {quant}', '{custID}', '{prodTypeId}')";
+           string command = $"insert into product values (null, '{price}', '{title}', '{descript}', '{prodAdded}', '{quant}', '{custID}', '{prodTypeId}')";
            int productId = _db.Insert(command);
 
            return productId;
