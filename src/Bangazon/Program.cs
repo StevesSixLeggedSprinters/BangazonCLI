@@ -1,4 +1,5 @@
 ﻿using System;
+using Bangazon.Data;
 
 namespace Bangazon
 {
@@ -6,9 +7,7 @@ namespace Bangazon
     {
         static void Main(string[] args)
         {
-            // Seed the database if none exists
-            // var db = new DatabaseInitializer();
-            // db.VerifyDataExists();
+            // Seed the database if none exist
 
             /* Authored by Krissy Caron this creating a new instance of db and creating the folowing tables
             usign the DatabaseInterface.cs as a blue print. */
@@ -19,6 +18,9 @@ namespace Bangazon
             db.CheckPaymentTypeTable();
             db.CheckOrdersTable();
             db.CheckProductOrderTable();
+
+            // Why does this not need an instance of class DBPopulator?
+            DBPopulator.Populate(db);
             
             //Instance of customer manager. 
             CustomerManager manager = new CustomerManager(db);
