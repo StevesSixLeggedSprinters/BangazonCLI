@@ -68,7 +68,9 @@ namespace Bangazon
                     foreach (Customer customer in customersList)
                     {
                         Console.WriteLine($"{customer.CustomerId}. {customer.FirstName} {customer.LastName}");
-                    } 
+                    }
+                CustomerManager.ActiveCustomer = Console.ReadLine(); 
+                
             }
         }
     }

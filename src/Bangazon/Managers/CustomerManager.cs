@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Bangazon.Models;
 using Microsoft.Data.Sqlite;
 
@@ -61,5 +62,6 @@ namespace Bangazon
                 });
             return _customers;
         }
+        public Customer GetCustomer (int customerId) => _customers.SingleOrDefault(Customer=> Customer.CustomerId == customerId);
     }
 }
