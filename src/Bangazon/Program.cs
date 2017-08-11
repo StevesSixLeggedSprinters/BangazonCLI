@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Bangazon.Data;
+using Bangazon.Models;
 
 namespace Bangazon
 {
@@ -30,6 +32,7 @@ namespace Bangazon
             Console.WriteLine ("Welcome to Bangazon! Command Line Ordering System");
             Console.WriteLine ("*************************************************");
             Console.WriteLine ("1. Create a customer account");
+            Console.WriteLine ("2. Choose active customer");
 			Console.Write ("> ");
 
 			// Read in the user's choice
@@ -55,6 +58,17 @@ namespace Bangazon
                 string phoneNumber = Console.ReadLine();
 
                 manager.CreateCustomer(firstName, lastName, email, phoneNumber, DateTime.Now);
+            }
+            //If Option 2 
+            if (choice == 2)
+            {
+                Console.WriteLine ("Which customer will be active?");
+                
+                List <Customer> customersList = manager.GetCustomers();
+                    foreach (Customer customer in customersList)
+                    {
+                        Console.WriteLine($"{customer.CustomerId}. {customer.FirstName} {customer.LastName}");
+                    } 
             }
         }
     }

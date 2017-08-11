@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Bangazon.Models;
+using Microsoft.Data.Sqlite;
 
 namespace Bangazon
 {
@@ -42,6 +43,22 @@ namespace Bangazon
         //This method serves to retrieve all customers, eventually
         public List<Customer> GetCustomers()
         {
+            _db.Query("select CustomerId, FirstName, LastName, Email, Phone, DateAccountCreated from Customer", 
+                (SqliteDataReader reader) => {
+                    _customers.Clear();
+                    while (reader.Read())
+                    {
+                        _customers.Add(new Customer()
+                        {
+                            CustomerId = reader.GetInt32(0),
+                            FirstName = reader[1].ToString(),
+                            LastName = reader[2].ToString(),
+                            Email = reader[3].ToString(),
+                            Phone = reader[4].ToString(),
+                            DateAccountCreated = reader.GetDateTime(5)
+                        });
+                    }
+                });
             return _customers;
         }
     }
