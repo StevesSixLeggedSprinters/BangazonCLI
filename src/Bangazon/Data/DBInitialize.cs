@@ -16,9 +16,9 @@ namespace Bangazon.Data
         public static void Populate(DatabaseInterface db)
         {
             //Populating Customer table
-            db.Insert( $"insert into customer values (null, 'Joe', 'Schmoe', 'something@something.com', '615-555-5555')" );
-            db.Insert( $"insert into customer values (null, 'Jill', 'Schmoe', 'something@something.com', '615-444-5555')");
-            db.Insert( $"insert into customer values (null, 'Juble', 'Lee', 'something@something.com', '615-333-5555')");
+            db.Insert( $"insert into customer values (null, 'Joe', 'Schmoe', 'something@something.com', '615-555-5555', '2017-02-12')" );
+            db.Insert( $"insert into customer values (null, 'Jill', 'Schmoe', 'something@something.com', '615-444-5555', '2017-02-12')");
+            db.Insert( $"insert into customer values (null, 'Juble', 'Lee', 'something@something.com', '615-333-5555', '2017-02-12')");
 
             //Populating the ProductType table
             db.Insert( $"insert into ProductType values (null, 'Produce')");
@@ -29,7 +29,7 @@ namespace Bangazon.Data
             //Populating the Product table
             db.Insert( $"insert into product values (null, 12.23, 'Vegetable Knife', 'This knife slices through veggies with ease. Great for salad prep!', '2017-04-12', 1, 2, 3)");
             db.Insert( $"insert into product values (null, 12.24, 'Meat Knife', 'This knife slices through meat with ease. Great for salad prep!', '2017-04-12', 1, 2, 3)");
-            db.Insert( $"insert into product values (null, 12.25, 'Bath Tiles', '', '2017-04-12', 1, 2, 1)");
+            db.Insert( $"insert into product values (null, 12.25, 'Bath Tiles', 'beautiful marble', '2017-04-12', 1, 2, 1)");
             
 
             //Populating the PaymentType table
