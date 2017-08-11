@@ -69,7 +69,13 @@ namespace Bangazon
                     {
                         Console.WriteLine($"{customer.CustomerId}. {customer.FirstName} {customer.LastName}");
                     }
-                CustomerManager.ActiveCustomer = Console.ReadLine(); 
+                Console.Write ("> ");
+                string chosenCustomer = Console.ReadLine(); 
+                CustomerManager.ActiveCustomer = manager.GetCustomer(int.Parse(chosenCustomer));
+
+                Console.WriteLine("Active Customer is: " + CustomerManager.ActiveCustomer.FirstName + " " + CustomerManager.ActiveCustomer.LastName);
+
+
                 
             }
         }
