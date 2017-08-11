@@ -104,7 +104,7 @@ namespace Bangazon
                     Console.WriteLine(ex.Message);
                     if (ex.Message.Contains("no such table"))
                     {
-                        dbCommand.CommandText = $@"create table customer (
+                        dbCommand.CommandText = $@"create table Customer (
                             'CustomerId'            integer NOT NULL PRIMARY KEY AUTOINCREMENT,
                             'FirstName'             varchar(80) not null,
                             'LastName'              varchar(80) not null,
