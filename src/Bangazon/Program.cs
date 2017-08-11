@@ -80,8 +80,6 @@ namespace Bangazon
 
                 //Takes Active customer and prints their name to console. 
                 Console.WriteLine("Active Customer is: " + CustomerManager.ActiveCustomer.FirstName + " " + CustomerManager.ActiveCustomer.LastName);
-
-
                 
             }
         }
