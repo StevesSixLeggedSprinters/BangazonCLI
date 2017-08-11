@@ -10,12 +10,20 @@ namespace Bangazon.Tests
     {
         
         private CustomerManager _register;
+        
+        DatabaseInterface db = new DatabaseInterface("BangazonCLI_test_db");
 
         //Krissy Caron Authored - Construtor for the Customer test class of CustomerManagerShould.
         public CustomerManagerShould()
         {
             //Krissy Caron Authored -This is the new instance of the class we are testing in the program code. 
-            _register = new CustomerManager();
+            _register = new CustomerManager(db);
+            db.CheckCustomerTable();
+            db.CheckProductTypeTable();
+            db.CheckProductTable();
+            db.CheckPaymentTypeTable();
+            db.CheckOrdersTable();
+            db.CheckProductOrderTable();
             
         }
     
