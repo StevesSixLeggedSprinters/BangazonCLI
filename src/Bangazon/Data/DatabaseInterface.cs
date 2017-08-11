@@ -104,14 +104,13 @@ namespace Bangazon
                     Console.WriteLine(ex.Message);
                     if (ex.Message.Contains("no such table"))
                     {
-                        dbCommand.CommandText = $@"create table customer (
+                        dbCommand.CommandText = $@"create table Customer (
                             'CustomerId'            integer NOT NULL PRIMARY KEY AUTOINCREMENT,
                             'FirstName'             varchar(80) not null,
                             'LastName'              varchar(80) not null,
                             'Email'                 varchar(80) not null,
                             'Phone'                 varchar(80) not null,
-                            'DateAccountCreated'    text NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%S')),
-                            'IsActive'              integer NOT NULL
+                            'DateAccountCreated'    text NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%S'))
                         )";
                         try
                         {
@@ -220,6 +219,52 @@ namespace Bangazon
             }
         }
 
+
+        public void CheckPaymentTypeTable() 
+        {
+            using (_connection)
+            {
+                _connection.Open();
+                SqliteCommand dbCommand = _connection.CreateCommand();
+
+                // this checks to see if the PaymentType table exists
+                dbCommand.CommandText = $"select id from PaymentType";
+
+                try
+                {
+                    // Try to run the query. If it throws an exception, create the table
+                    using (SqliteDataReader reader = dbCommand.ExecuteReader()) { }
+                    dbCommand.Dispose();
+                }
+                catch (Microsoft.Data.Sqlite.SqliteException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    if (ex.Message.Contains("no such table"))
+                    {
+                        dbCommand.CommandText = $@"create table PaymentType (
+                            'PaymentTypeId'      integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+                            'PaymentTypeName'    varchar(80) NOT NULL,
+                            'AccountNumber'      integer NOT NULL,
+                            'CustomerId'         integer NOT NULL,
+                            FOREIGN KEY('CustomerId') REFERENCES 'Customer'('CustomerId')
+                        )";
+                        try
+                        {
+                            dbCommand.ExecuteNonQuery();
+                        }
+                        catch (Microsoft.Data.Sqlite.SqliteException trex)
+                        {
+                            Console.WriteLine("Table already exists. Ignoring");
+                        }
+                        dbCommand.Dispose();
+                    }
+                }
+                _connection.Close();
+
+            }
+        }
+        
+
         public void CheckOrdersTable()
         {
             using (_connection)
@@ -266,49 +311,6 @@ namespace Bangazon
             }
         }
 
-        public void CheckPaymentTypeTable()
-        {
-            using (_connection)
-            {
-                _connection.Open();
-                SqliteCommand dbCommand = _connection.CreateCommand();
-
-                // this checks to see if the PaymentType table exists
-                dbCommand.CommandText = $"select id from PaymentType";
-
-                try
-                {
-                    // Try to run the query. If it throws an exception, create the table
-                    using (SqliteDataReader reader = dbCommand.ExecuteReader()) { }
-                    dbCommand.Dispose();
-                }
-                catch (Microsoft.Data.Sqlite.SqliteException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    if (ex.Message.Contains("no such table"))
-                    {
-                        dbCommand.CommandText = $@"create table PaymentType (
-                            'PaymentTypeId'      integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-                            'PaymentTypeName'    varchar(80) NOT NULL,
-                            'AccountNumber'      integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-                            'CustomerId'         integer NOT NULL,
-                            FOREIGN KEY('CustomerId') REFERENCES 'Customer'('CustomerId')
-                        )";
-                        try
-                        {
-                            dbCommand.ExecuteNonQuery();
-                        }
-                        catch (Microsoft.Data.Sqlite.SqliteException crex)
-                        {
-                            Console.WriteLine("Table already exists. Ignoring");
-                        }
-                        dbCommand.Dispose();
-                    }
-                }
-                _connection.Close();
-
-            }
-        }
 
         public void CheckProductOrderTable()
         {
@@ -336,7 +338,7 @@ namespace Bangazon
                             'ProductId'           integer NOT NULL,
                             'OrderId'             integer NOT NULL,
                             FOREIGN KEY('ProductId') REFERENCES 'Product'('ProductId'),
-                            FOREIGN KEY('OrderId') REFERENCES 'Order'('OrderId'),
+                            FOREIGN KEY('OrderId') REFERENCES 'Order'('OrderId')
                         )";
                         try
                         {
