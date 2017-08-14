@@ -84,3 +84,10 @@ After cloning the repo and setting your environment variable, restore dependenci
 * Kyle
 * Kevin
 * Jordan
+
+
+Program Functionality: 
+
+
+### Creating a Customer
+As a user of the program, you are able to create a customer account via the CLI we created. This is the first option in the BangazonCLI. 
