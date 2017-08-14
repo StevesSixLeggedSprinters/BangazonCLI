@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Bangazon.Models;
-using System.Linq;
 
 namespace Bangazon
 {
