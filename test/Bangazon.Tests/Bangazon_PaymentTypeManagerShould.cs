@@ -14,6 +14,12 @@ namespace Bangazon.Tests
             _paymentManager = new PaymentTypeManager();
         }
 
+        /* - kk 
+        - AddPaymentTypeForCustomer is a test method for the 'AddPaymentType()' method in PaymentTypeManager.cs
+        - A constructor, 'customer' has been created on line 26. It stores a FirstName, LastName, and a CustomerId.
+        - 'money' is a constructor that will hold PaymentTypeName, Account Number, and CustomerId.
+         */
+
         [Fact]
         public void AddPaymentTypeForCustomer()
         {
@@ -28,11 +34,19 @@ namespace Bangazon.Tests
 
             string paymentTypeName = "bitcoin";
 
-            PaymentType money = new PaymentType(customer, number, paymentTypeName);
-            PaymentType paymentTest = _paymentManager.AddPaymentType(customer, money);
-            Assert.Equal(money, paymentTest);
+            PaymentType money = new PaymentType()
+            {
+                PaymentTypeName = paymentTypeName,
+                AccountNumber = number,
+                CustomerId = customer.CustomerId
+            };
+            int paymentTest = _paymentManager.AddPaymentType(money);
+            Assert.True(paymentTest != 0);
         }
 
+        /*
+        kk - GetPaymentTypesForCustomer is a test method for 'GetPaymentTypes' in PaymentTypeManager.cs.
+        */
         [Fact]
         public void GetPaymentTypesForCustomer()
         {
@@ -43,28 +57,18 @@ namespace Bangazon.Tests
                 CustomerId = 1
             };
 
-            PaymentType bitcoin = new PaymentType(joe, 156156, "bitcoin");
-          
-
-            _paymentManager.AddPaymentType(joe, bitcoin);
+            PaymentType bitcoin = new PaymentType()
+            {
+                PaymentTypeName = "bitcoin"
+            };
 
             List<PaymentType> result = _paymentManager.GetPaymentTypes(joe.CustomerId);
+            Assert.Empty(result);
+            
+            _paymentManager.AddPaymentType(bitcoin);
 
-            foreach (PaymentType res in result)
-            {
-                Assert.Equal(res.CustomerId, joe.CustomerId);
-            }
+            List<PaymentType> result2 = _paymentManager.GetPaymentTypes(joe.CustomerId);
+            Assert.True(result2.Count > 0);
         }
-
-        [Fact]
-        public void ShouldSelectPaymentTypeForOrder()
-        {
-            int orderId = 1;
-            int paymentTypeId = 1;
-
-            var chosePayType = _paymentManager.SelectPaymentType(orderId, paymentTypeId);
-            Assert.True(chosePayType);
-        }
-
     }
 }
