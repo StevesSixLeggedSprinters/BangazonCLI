@@ -68,7 +68,7 @@ namespace Bangazon
             if (choice == 3)
             {
                 //Check that there is a customer selected as active
-                if (CustomerManager.ActiveCustomerId == 0)
+                if (CustomerManager.ActiveCustomer.CustomerId == 0)
                 {
                     choice = 2;
                 }
@@ -95,7 +95,7 @@ namespace Bangazon
                 Console.WriteLine("Enter quantity to list");
                 int quantity = int.Parse(Console.ReadLine());
                 //get activeCustomer id
-                int custId = CustomerManager.ActiveCustomerId;
+                int custId = CustomerManager.ActiveCustomer.CustomerId;
 
                 prodManager.AddProduct(price, title, description, date, quantity, custId, prodTypeID);
 
