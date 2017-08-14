@@ -8,6 +8,7 @@ namespace Bangazon
 {
     public class CustomerManager
     {
+        //This field authored by Jordan Dhaenens
         public static Customer ActiveCustomer { get; set; }
         private List<Customer> _customers = new List<Customer>();
         
@@ -19,6 +20,10 @@ namespace Bangazon
         public CustomerManager(DatabaseInterface db)
         {
             _db = db;
+            ActiveCustomer = new Customer()
+            {
+                CustomerId = 0
+            };
 
         }
 
