@@ -33,6 +33,7 @@ namespace Bangazon
             ProductManager prodManager = new ProductManager(db);
   
             // Present the main menu
+            MainMenu:
             Console.WriteLine ("*************************************************");
             Console.WriteLine ("Welcome to Bangazon! Command Line Ordering System");
             Console.WriteLine ("*************************************************");
@@ -69,6 +70,7 @@ namespace Bangazon
             /* Authored by Krissy Caron
             If Option 2 is selected, the list of all customers is displayed to the console in a Numered list. 
             The user can select from the customers which to make active, and that will be stored in the ActiveCustomer. */
+            Choice2:
             if (choice == 2)
             {
                 Console.WriteLine ("Which customer will be active?");
@@ -87,7 +89,7 @@ namespace Bangazon
 
                 //Takes Active customer and prints their name to console. 
                 Console.WriteLine("Active Customer is: " + CustomerManager.ActiveCustomer.FirstName + " " + CustomerManager.ActiveCustomer.LastName);
-                
+               goto MainMenu; 
             }
 
             //This choice is authored by Jordan Dhaenens
@@ -97,6 +99,7 @@ namespace Bangazon
                 if (CustomerManager.ActiveCustomer.CustomerId == 0)
                 {
                     choice = 2;
+                    goto Choice2;
                 }
                 Console.Clear();
                 Console.WriteLine ("Choose ProductType");

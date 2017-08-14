@@ -20,6 +20,10 @@ namespace Bangazon
         public CustomerManager(DatabaseInterface db)
         {
             _db = db;
+            ActiveCustomer = new Customer()
+            {
+                CustomerId = 0
+            };
 
         }
 
